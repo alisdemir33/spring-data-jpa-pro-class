@@ -20,7 +20,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-// @DiscriminatorColumn(name = "resource_type") --> only with SINGLE_TABLE
 public class Resource {
 
   @Id
