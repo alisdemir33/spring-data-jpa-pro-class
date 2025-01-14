@@ -18,7 +18,7 @@ import org.hibernate.annotations.PolymorphismType;
 @SuperBuilder
 @Entity
 // @PrimaryKeyJoinColumn(name = "video_id")
-// @DiscriminatorValue("V")
+@DiscriminatorValue("V")
 @Polymorphism(type = PolymorphismType.EXPLICIT)
 public class Video extends Resource {
 
