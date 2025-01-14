@@ -19,8 +19,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-// @DiscriminatorColumn(name = "resource_type") --> only with SINGLE_TABLE
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Resource {
 
   @Id
@@ -31,6 +30,6 @@ public class Resource {
   private String url;
 
   @OneToOne
-  @JoinColumn(name = "lecture_id")
+  @JoinColumn(name = "lecture_id", nullable = false)
   private Lecture lecture;
 }

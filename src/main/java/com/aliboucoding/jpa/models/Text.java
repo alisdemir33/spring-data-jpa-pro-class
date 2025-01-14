@@ -2,6 +2,7 @@ package com.aliboucoding.jpa.models;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
-// @DiscriminatorValue("T")
+@PrimaryKeyJoinColumn(name = "text_id")
 public class Text extends Resource {
 
   private String content;
