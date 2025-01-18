@@ -33,4 +33,22 @@ public class AuthorSpecification {
             return builder.like(root.get("firstName"), "%" + firstname + "%");
         };
     }
+
+    public static Specification<Author> emailContains(String email) {
+        return (Root<Author> root, CriteriaQuery<?> query, CriteriaBuilder builder) -> {
+            if (email == null) {
+                return null;
+            }
+            return builder.like(root.get("email"), "%" + email + "%");
+        };
+    }
+
+    public static Specification<Author> ageBetween(int minAge, int maxAge) {
+        return (Root<Author> root, CriteriaQuery<?> query, CriteriaBuilder builder) -> {
+            if (minAge < 0 || maxAge < 0) {
+                return null;
+            }
+            return builder.between(root.get("age"), minAge, maxAge);
+        };
+    }
 }

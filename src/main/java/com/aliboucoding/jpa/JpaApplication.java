@@ -60,9 +60,14 @@ public class JpaApplication {
 
 			Specification<Author> spec = Specification
 					.where(AuthorSpecification.hasAge(22))
-					.or(AuthorSpecification.firstnameLike("i"))
+					.or(AuthorSpecification.firstnameLike("Ali"))
 					;
 			repository.findAll(spec).forEach(System.out::println);
+
+			Specification<Author> spec2 = Specification
+					.where(AuthorSpecification.emailContains("gmail"))
+					.and(AuthorSpecification.ageBetween(20,30))
+					;
 		};
 
 	}
